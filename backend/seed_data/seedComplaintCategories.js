@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-import { ComplaintCategories } from "./models/ComplaintCategories.js";
+import dotenv from "dotenv";
+import ComplaintCategories from "../models/ComplaintCategories.js";
 
 dotenv.config();
 
@@ -106,14 +107,16 @@ const complaintCategoriesData = [
 async function seed() {
   try {
     await mongoose.connect(process.env.MONGO_URI);
+    console.log("Database connected for seeding.");
 
     // Clear old data
     await ComplaintCategories.deleteMany({});
+    console.log("Old complaint categories deleted.");
 
     // Insert fresh
     await ComplaintCategories.insertMany(complaintCategoriesData);
-
-    console.log("✅ Complaint categories seeded successfully!");
+    console.log("Complaint categories seeded successfully!");
+    
     process.exit();
   } catch (err) {
     console.error("❌ Error seeding complaint categories:", err);

@@ -5,4 +5,6 @@ const categoryCriteriaSchema = new mongoose.Schema({
   criteria: [{ type: String ,required: true}] // list of criteria names
 });
 
-export default mongoose.models.CategoryCriteria || mongoose.model("CategoryCriteria", categoryCriteriaSchema);
+const CategoryCriteria = mongoose.models.CategoryCriteria || mongoose.model("CategoryCriteria", categoryCriteriaSchema);
+
+export default CategoryCriteria;

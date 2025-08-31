@@ -1,7 +1,7 @@
 // seedCategoryCriteria.js
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import CategoryCriteria from "./models/CategoryCriteria.js";
+import CategoryCriteria from "../models/CategoryCriteria.js";
 
 dotenv.config();
 
